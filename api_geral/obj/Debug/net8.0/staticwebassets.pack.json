@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\api_geral\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.api_geral.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.api_geral.props",
+      "PackagePath": "build\\api_geral.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.api_geral.props",
+      "PackagePath": "buildMultiTargeting\\api_geral.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.api_geral.props",
+      "PackagePath": "buildTransitive\\api_geral.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

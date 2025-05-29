@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "xPhCNkXsVOnXuIyNH3OWYpn7t/fPklpmcSI0h6oo4Tc=",
+  "Source": "api_geral",
+  "BasePath": "_content/api_geral",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "api_geral\\wwwroot",
+      "Source": "api_geral",
+      "ContentRoot": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\api_geral\\wwwroot\\",
+      "BasePath": "_content/api_geral",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\api_geral\\wwwroot\\index.html",
+      "SourceId": "api_geral",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\api_geral\\wwwroot\\",
+      "BasePath": "_content/api_geral",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ]
+}

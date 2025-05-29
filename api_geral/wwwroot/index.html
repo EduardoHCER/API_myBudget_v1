@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Controle de Despesas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <h1 class="mb-5 text-center">💸 Controle de Despesas</h1>
+
+    <!-- Formulário -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-header">Nova Despesa</div>
+      <div class="card-body">
+        <form id="form" class="row g-3">
+          <input type="hidden" id="id" />
+          <div class="col-md-4">
+            <input type="text" id="titulo" class="form-control" placeholder="Título da despesa" required />
+          </div>
+          <div class="col-md-3">
+            <input type="date" id="data" class="form-control" required />
+          </div>
+          <div class="col-md-2">
+            <input type="number" step="0.01" id="valor" class="form-control" placeholder="Valor (R$)" required />
+          </div>
+          <div class="col-md-3">
+            <select id="formaPagamento" class="form-select" required>
+              <option value="">Forma de Pagamento</option>
+              <option value="Dinheiro">Dinheiro</option>
+              <option value="Cartão">Cartão</option>
+              <option value="Transferência">Transferência</option>
+              <option value="Boleto">Boleto</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <select id="categoria" class="form-select" required>
+              <option value="">Categoria</option>
+              <option value="Alimentação">Alimentação</option>
+              <option value="Transporte">Transporte</option>
+              <option value="Saúde">Saúde</option>
+              <option value="Educação">Educação</option>
+              <option value="Lazer">Lazer</option>
+              <option value="Roupas">Roupas</option>
+              <option value="Casa">Casa</option>
+              <option value="Outros">Outros</option>
+            </select>
+          </div>
+          <div class="col-md-3 d-grid">
+            <button class="btn btn-success" type="submit">
+              <i class="bi bi-check-circle"></i> Salvar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Filtro -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-header">Filtro</div>
+      <div class="card-body row">
+        <div class="col-md-6">
+          <select id="filtroCategoria" class="form-select">
+            <option value="">Todas as Categorias</option>
+          </select>
+        </div>
+        <div class="col-md-3 d-grid">
+          <button class="btn btn-outline-secondary" onclick="limparFiltro()">
+            <i class="bi bi-x-circle"></i> Limpar Filtro
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resumo -->
+    <div class="alert alert-primary d-flex justify-content-between align-items-center mb-4">
+      <div><strong>Total de Despesas:</strong> <span id="totalDespesas">0</span></div>
+      <div><strong>Valor Total:</strong> R$ <span id="valorTotal">0,00</span></div>
+    </div>
+
+    <!-- Lista de Despesas -->
+    <div class="table-responsive">
+      <table class="table table-hover align-middle bg-white shadow-sm">
+        <thead class="table-light">
+          <tr>
+            <th>Título</th>
+            <th>Data</th>
+            <th>Valor</th>
+            <th>Pagamento</th>
+            <th>Categoria</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="lista"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const api = 'http://localhost:5082/api/despesas';
+    const apiCategorias = 'http://localhost:5082/api/categorias';
+
+    async function carregarCategoriasFiltro() {
+      try {
+        const res = await fetch(apiCategorias);
+        if (!res.ok) throw new Error('Erro ao buscar categorias');
+        const categorias = await res.json();
+
+        const filtroCategoria = document.getElementById('filtroCategoria');
+        filtroCategoria.innerHTML = '<option value="">Todas as Categorias</option>';
+        categorias.forEach(categoria => {
+          const option = document.createElement('option');
+          option.value = categoria;
+          option.textContent = categoria;
+          filtroCategoria.appendChild(option);
+        });
+      } catch (err) {
+        console.error('Erro ao carregar categorias:', err);
+      }
+    }
+
+    function renderDespesaRow(d) {
+      return `
+        <tr>
+          <td><strong>${d.titulo}</strong></td>
+          <td>${new Date(d.data).toLocaleDateString('pt-BR')}</td>
+          <td>R$ ${d.valor.toFixed(2).replace('.', ',')}</td>
+          <td>${d.formaPagamento}</td>
+          <td><span class="badge bg-info text-dark">${d.categoria}</span></td>
+          <td>
+            <button class="btn btn-sm btn-warning me-2" onclick="editarDespesa(${d.id})">
+              <i class="bi bi-pencil"></i>
+            </button>
+            <button class="btn btn-sm btn-danger" onclick="excluirDespesa(${d.id})">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        </tr>
+      `;
+    }
+
+    async function carregarDespesas(categoriaFiltro = '') {
+      try {
+        let url = api;
+        if (categoriaFiltro) {
+          url += `?categoria=${encodeURIComponent(categoriaFiltro)}`;
+        }
+
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('Erro ao buscar despesas');
+        const despesas = await res.json();
+
+        const lista = document.getElementById('lista');
+        lista.innerHTML = '';
+
+        const totalDespesas = despesas.length;
+        const valorTotal = despesas.reduce((sum, d) => sum + d.valor, 0);
+
+        document.getElementById('totalDespesas').textContent = totalDespesas;
+        document.getElementById('valorTotal').textContent = valorTotal.toFixed(2).replace('.', ',');
+
+        despesas.forEach(d => lista.innerHTML += renderDespesaRow(d));
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    async function salvarDespesa(event) {
+      event.preventDefault();
+
+      const id = document.getElementById('id').value;
+      const titulo = document.getElementById('titulo').value;
+      const data = document.getElementById('data').value;
+      const valor = parseFloat(document.getElementById('valor').value);
+      const formaPagamento = document.getElementById('formaPagamento').value;
+      const categoria = document.getElementById('categoria').value;
+
+      const despesa = {
+        id: id ? parseInt(id) : 0,
+        titulo,
+        data,
+        valor,
+        formaPagamento,
+        categoria
+      };
+
+      try {
+        const metodo = id ? 'PUT' : 'POST';
+        const url = id ? `${api}/${id}` : api;
+
+        const res = await fetch(url, {
+          method: metodo,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(despesa)
+        });
+        if (!res.ok) {
+          const errorText = await res.text();
+          throw new Error(`Erro ${res.status}: ${errorText}`);
+        }
+
+        document.getElementById('form').reset();
+        document.getElementById('id').value = '';
+        carregarDespesas();
+        carregarCategoriasFiltro();
+      } catch (err) {
+        alert('Erro ao salvar despesa: ' + err.message);
+      }
+    }
+
+    async function editarDespesa(id) {
+      try {
+        const res = await fetch(`${api}/${id}`);
+        if (!res.ok) throw new Error('Despesa não encontrada');
+        const d = await res.json();
+
+        document.getElementById('id').value = d.id;
+        document.getElementById('titulo').value = d.titulo;
+        document.getElementById('data').value = d.data.split('T')[0];
+        document.getElementById('valor').value = d.valor;
+        document.getElementById('formaPagamento').value = d.formaPagamento;
+        document.getElementById('categoria').value = d.categoria;
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    async function excluirDespesa(id) {
+      if (!confirm('Tem certeza que deseja excluir essa despesa?')) return;
+
+      try {
+        const res = await fetch(`${api}/${id}`, { method: 'DELETE' });
+        if (!res.ok) throw new Error('Erro ao excluir despesa');
+        carregarDespesas();
+        carregarCategoriasFiltro();
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    function aplicarFiltroCategoria() {
+      const categoriaFiltro = document.getElementById('filtroCategoria').value;
+      carregarDespesas(categoriaFiltro);
+    }
+
+    function limparFiltro() {
+      document.getElementById('filtroCategoria').value = '';
+      carregarDespesas();
+    }
+
+    document.getElementById('form').addEventListener('submit', salvarDespesa);
+    document.getElementById('filtroCategoria').addEventListener('change', aplicarFiltroCategoria);
+
+    carregarDespesas();
+    carregarCategoriasFiltro();
+  </script>
+</body>
+</html>
