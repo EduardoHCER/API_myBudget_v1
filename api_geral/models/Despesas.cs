@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace API_GERAL.models
 {
+    // Atributos da classe Despesas.
     public class Despesas
     {
         public int id { get; set; }
@@ -14,6 +15,7 @@ namespace API_GERAL.models
         public string formaPagamento { get; set; }
         public string categoria { get; set; }
 
+        // Método construtor.
         public Despesas(
             int id,
             string titulo,

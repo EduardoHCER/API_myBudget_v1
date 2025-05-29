@@ -1,0 +1,194 @@
+
+/* Título Principal */
+.main-title {
+  color: #2c3e50;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  
+}
+
+/* Cards Customizados */
+.card-custom {
+  border-radius: 12px;
+  border: none;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card-custom:hover {
+  transform: translateY(-2px);
+}
+
+/* Botão Salvar */
+.btn-save {
+  background-color: #27ae60;
+  border-color: #27ae60;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-save:hover {
+  background-color: #219a52;
+  border-color: #219a52;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+}
+
+/* Card do Resumo Financeiro */
+.summary-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.summary-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Tabela Customizada */
+.table-custom {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Headers dos Cards */
+.card-header {
+  font-weight: 500;
+  border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+/* Formulário */
+.form-label {
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.form-control, .form-select {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  transition: all 0.2s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+/* Badges nas Categorias */
+.badge {
+  font-size: 0.85em;
+  padding: 0.5em 0.75em;
+  border-radius: 6px;
+}
+
+/* Botões de Ação */
+.btn-sm {
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-warning:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(255, 193, 7, 0.3);
+}
+
+.btn-danger:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(220, 53, 69, 0.3);
+}
+
+/* Tabela */
+.table {
+  font-size: 0.95rem;
+}
+
+.table th {
+  font-weight: 600;
+  color: #495057;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table td {
+  vertical-align: middle;
+  padding: 1rem 0.75rem;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(102, 126, 234, 0.05);
+}
+
+/* Estado Vazio da Tabela */
+.text-muted i {
+  opacity: 0.5;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 1.8rem;
+  }
+  
+  .summary-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .table-responsive {
+    font-size: 0.9rem;
+  }
+  
+  .btn-sm {
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-custom {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Loading State */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Success/Error Messages */
+.alert-custom {
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+}
+
+/* Scrollbar Customizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5a67d8;
+}

@@ -1,8 +1,16 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\api_geral\\wwwroot\\index.html",
+      "Id": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\script.js",
+      "PackagePath": "staticwebassets\\script.js"
+    },
+    {
+      "Id": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\style.css",
+      "PackagePath": "staticwebassets\\style.css"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.api_geral.Microsoft.AspNetCore.StaticWebAssets.props",

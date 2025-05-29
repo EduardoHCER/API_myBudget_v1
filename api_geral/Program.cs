@@ -5,16 +5,16 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configura o DbContext
+// Configura o DbContext.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=despesas.db")
 );
 
-// Swagger
+// Config's do Swagger.
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Configuração CORS
+// Configuração CORS.
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(
@@ -25,9 +25,10 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Middleware para usar CORS
+// Config para habilitar Cors.
 app.UseCors("AllowAll");
 
+// Condicional para habilitar swagger caso a API tenha sido executada de forma correta, caso não retorna código de erro.
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -39,11 +40,12 @@ else
     app.UseHttpsRedirection();
 }
 
-// Registrar todas as rotas
+// Registrar todas as rotas.
 app.MapDespesasRoutes();
 
-// Serve arquivos estáticos, index.html, etc.
+// Habilita arquivos estáticos, index.html, etc.
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
+// Executa a aplicação.
 app.Run();

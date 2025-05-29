@@ -7,39 +7,29 @@ namespace API_GERAL.Routes
     {
         public static void MapPutDespesa(this WebApplication app)
         {
-            // PUT atualizar despesa existente
+            // PUT para atualizar despesa existente.
             app.MapPut(
-                    "/api/despesas/{id}",
-                    async (int id, Despesas atualizada, AppDbContext db) =>
-                    {
-                        // Busca a despesa existente
-                        var despesa = await db.Despesas.FindAsync(id);
-                        if (despesa is null)
-                            return Results.NotFound("Despesa não encontrada.");
+                "/api/despesas/{id}",
+                async (int id, Despesas atualizada, AppDbContext db) =>
+                {
+                    // Busca a despesa existente.
+                    var despesa = await db.Despesas.FindAsync(id);
+                    if (despesa is null)
+                        return Results.NotFound("Despesa não encontrada.");
 
-                        // Validações
-                        if (string.IsNullOrWhiteSpace(atualizada.titulo) || atualizada.valor <= 0)
-                            return Results.BadRequest(
-                                "Título é obrigatório e valor deve ser maior que 0."
-                            );
+                    // Atualiza os campos no banco.
+                    despesa.titulo = atualizada.titulo;
+                    despesa.data = atualizada.data;
+                    despesa.valor = atualizada.valor;
+                    despesa.formaPagamento = atualizada.formaPagamento;
+                    despesa.categoria = atualizada.categoria;
 
-                        // Atualiza os campos
-                        despesa.titulo = atualizada.titulo;
-                        despesa.data = atualizada.data;
-                        despesa.valor = atualizada.valor;
-                        despesa.formaPagamento = atualizada.formaPagamento;
-                        despesa.categoria = atualizada.categoria;
+                    // Salva as alterações no banco.
+                    await db.SaveChangesAsync();
 
-                        // Salva as alterações
-                        await db.SaveChangesAsync();
-
-                        return Results.NoContent();
-                    }
-                )
-                .WithName("UpdateDespesa")
-                .WithTags("Despesas")
-                .WithSummary("Atualiza uma despesa existente")
-                .WithDescription("Modifica todos os campos de uma despesa pelo seu ID");
+                    return Results.NoContent();
+                }
+            );
         }
     }
 }

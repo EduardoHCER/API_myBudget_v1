@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xPhCNkXsVOnXuIyNH3OWYpn7t/fPklpmcSI0h6oo4Tc=",
+  "Hash": "Y+3h0vTl1yWWOX6QlFpQuyiryxa1nz+Nzm1i4Gh+O7Q=",
   "Source": "api_geral",
   "BasePath": "_content/api_geral",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "api_geral\\wwwroot",
       "Source": "api_geral",
-      "ContentRoot": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\api_geral\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\",
       "BasePath": "_content/api_geral",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\api_geral\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\index.html",
       "SourceId": "api_geral",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\api_geral\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\",
       "BasePath": "_content/api_geral",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -34,6 +34,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\script.js",
+      "SourceId": "api_geral",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\",
+      "BasePath": "_content/api_geral",
+      "RelativePath": "script.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\script.js"
+    },
+    {
+      "Identity": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\style.css",
+      "SourceId": "api_geral",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\",
+      "BasePath": "_content/api_geral",
+      "RelativePath": "style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\style.css"
     }
   ]
 }

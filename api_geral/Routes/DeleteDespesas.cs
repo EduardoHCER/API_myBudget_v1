@@ -6,27 +6,23 @@ namespace API_GERAL.Routes
     {
         public static void MapDeleteDespesa(this WebApplication app)
         {
-            // DELETE remover despesa
+            // DELETE para remover despesa.
             app.MapDelete(
-                    "/api/despesas/{id}",
-                    async (int id, AppDbContext db) =>
-                    {
-                        // Busca a despesa para deletar
-                        var despesa = await db.Despesas.FindAsync(id);
-                        if (despesa is null)
-                            return Results.NotFound("Despesa não encontrada.");
+                "/api/despesas/{id}",
+                async (int id, AppDbContext db) =>
+                {
+                    // Busca a despesa para deletar
+                    var despesa = await db.Despesas.FindAsync(id);
+                    if (despesa is null)
+                        return Results.NotFound("Despesa não encontrada.");
 
-                        // Remove do contexto e salva
-                        db.Despesas.Remove(despesa);
-                        await db.SaveChangesAsync();
+                    // Remove do contexto e salva
+                    db.Despesas.Remove(despesa);
+                    await db.SaveChangesAsync();
 
-                        return Results.NoContent();
-                    }
-                )
-                .WithName("DeleteDespesa")
-                .WithTags("Despesas")
-                .WithSummary("Remove uma despesa")
-                .WithDescription("Exclui permanentemente uma despesa pelo seu ID");
+                    return Results.NoContent();
+                }
+            );
         }
     }
 }
