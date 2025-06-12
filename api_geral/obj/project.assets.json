@@ -3632,19 +3632,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\eduan\\.nuget\\packages\\": {}
+    "C:\\Users\\EDUARDORECHANTUNES\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\api_geral.csproj",
+      "projectUniqueName": "C:\\Users\\EDUARDORECHANTUNES\\Desktop\\Prova\\API_myBudget_v1\\api_geral\\api_geral.csproj",
       "projectName": "api_geral",
-      "projectPath": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\api_geral.csproj",
-      "packagesPath": "C:\\Users\\eduan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\obj\\",
+      "projectPath": "C:\\Users\\EDUARDORECHANTUNES\\Desktop\\Prova\\API_myBudget_v1\\api_geral\\api_geral.csproj",
+      "packagesPath": "C:\\Users\\EDUARDORECHANTUNES\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\EDUARDORECHANTUNES\\Desktop\\Prova\\API_myBudget_v1\\api_geral\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\eduan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\EDUARDORECHANTUNES\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"

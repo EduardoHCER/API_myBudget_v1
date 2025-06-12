@@ -1,12 +1,18 @@
 const API_URL = 'http://localhost:5082/api/despesas';
 let despesas = [];
 
+function calcularValorComJuros(valor) {
+  return valor + (valor * 0.10); // Calcula o valor com 10% de juros
+}
+
 function criarLinha(d) {
+  const valorAtualizado = calcularValorComJuros(d.valor);
+  
   return `
     <tr>
       <td>${d.titulo}</td>
       <td>${d.data.split('T')[0]}</td>
-      <td>R$ ${d.valor.toFixed(2)}</td>
+      <td>R$ ${valorAtualizado.toFixed(2)}</td>
       <td>${d.formaPagamento}</td>
       <td>${d.categoria}</td>
       <td>
@@ -17,9 +23,12 @@ function criarLinha(d) {
 }
 
 function renderizar(lista = despesas) {
+  // Exibe a lista de despesas com o valor atualizado
   document.getElementById('listaDespesas').innerHTML = lista.map(criarLinha).join('');
   document.getElementById('totalDespesas').textContent = lista.length;
-  const total = lista.reduce((soma, d) => soma + d.valor, 0);
+
+  // Calcula o total com 10% de juros
+  const total = lista.reduce((soma, d) => soma + calcularValorComJuros(d.valor), 0);
   document.getElementById('valorTotal').textContent = 'R$ ' + total.toFixed(2);
 }
 
@@ -36,7 +45,7 @@ async function salvar(event) {
   const dados = {
     titulo: document.getElementById('titulo').value,
     data: document.getElementById('data').value,
-    valor: parseFloat(document.getElementById('valor').value),
+    valor: parseFloat(document.getElementById('valor').value), // Valor original, sem os juros
     formaPagamento: document.getElementById('formaPagamento').value,
     categoria: document.getElementById('categoria').value
   };
@@ -69,7 +78,7 @@ async function editar(id) {
   document.getElementById('despesaId').value = d.id;
   document.getElementById('titulo').value = d.titulo;
   document.getElementById('data').value = d.data.split('T')[0];
-  document.getElementById('valor').value = d.valor;
+  document.getElementById('valor').value = d.valor; // Valor original
   document.getElementById('formaPagamento').value = d.formaPagamento;
   document.getElementById('categoria').value = d.categoria;
 }

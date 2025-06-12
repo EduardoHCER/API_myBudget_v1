@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Y+3h0vTl1yWWOX6QlFpQuyiryxa1nz+Nzm1i4Gh+O7Q=",
+  "Hash": "HSGacXyHjRr7XVjvuyvOd/uv25Tk5+Ky9XyK0Vvf/lw=",
   "Source": "api_geral",
   "BasePath": "_content/api_geral",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "api_geral\\wwwroot",
       "Source": "api_geral",
-      "ContentRoot": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\EDUARDORECHANTUNES\\Desktop\\Prova\\API_myBudget_v1\\api_geral\\wwwroot\\",
       "BasePath": "_content/api_geral",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\EDUARDORECHANTUNES\\Desktop\\Prova\\API_myBudget_v1\\api_geral\\wwwroot\\index.html",
       "SourceId": "api_geral",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\EDUARDORECHANTUNES\\Desktop\\Prova\\API_myBudget_v1\\api_geral\\wwwroot\\",
       "BasePath": "_content/api_geral",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\script.js",
+      "Identity": "C:\\Users\\EDUARDORECHANTUNES\\Desktop\\Prova\\API_myBudget_v1\\api_geral\\wwwroot\\script.js",
       "SourceId": "api_geral",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\EDUARDORECHANTUNES\\Desktop\\Prova\\API_myBudget_v1\\api_geral\\wwwroot\\",
       "BasePath": "_content/api_geral",
       "RelativePath": "script.js",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot\\script.js"
     },
     {
-      "Identity": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\style.css",
+      "Identity": "C:\\Users\\EDUARDORECHANTUNES\\Desktop\\Prova\\API_myBudget_v1\\api_geral\\wwwroot\\style.css",
       "SourceId": "api_geral",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\eduan\\OneDrive\\Área de Trabalho\\Trabalho C#_api\\despesas_Csharp\\API_v1_30-05\\api_geral\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\EDUARDORECHANTUNES\\Desktop\\Prova\\API_myBudget_v1\\api_geral\\wwwroot\\",
       "BasePath": "_content/api_geral",
       "RelativePath": "style.css",
       "AssetKind": "All",

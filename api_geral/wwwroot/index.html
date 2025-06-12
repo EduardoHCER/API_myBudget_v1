@@ -16,7 +16,7 @@
 
 <body class="bg-light">
   <div class="container py-5">
-    <h1 class="mb-5 text-center main-title">MyBudget v1.0</h1>
+    <h1 class="mb-5 text-center main-title">Cadastro de despesas com funcionário</h1>
 
     <!-- FORMULÁRIO -->
     <div class="card shadow-sm mb-4 card-custom">
@@ -27,39 +27,40 @@
         <form id="formDespesa" class="row g-3">
           <input type="hidden" id="despesaId" />
           <div class="col-md-4">
-            <label class="form-label">Título</label>
+            <label class="form-label">Funcionário: </label>
             <input type="text" id="titulo" class="form-control" required />
           </div>
           <div class="col-md-3">
-            <label class="form-label">Data</label>
+            <label class="form-label">Data: </label>
             <input type="date" id="data" class="form-control" required />
           </div>
           <div class="col-md-2">
-            <label class="form-label">Valor</label>
+            <label class="form-label">Valor: </label>
             <input type="number" step="0.01" id="valor" class="form-control" required />
           </div>
           <div class="col-md-3">
-            <label class="form-label">Pagamento</label>
+            <label class="form-label">Pagamento: </label>
             <select id="formaPagamento" class="form-select" required>
               <option value="">Selecione...</option>
-              <option value="Dinheiro">Dinheiro</option>
-              <option value="Cartão">Cartão</option>
-              <option value="Transferência">Transferência</option>
-              <option value="Boleto">Boleto</option>
+              <option value="Dinheiro">1. Dinheiro ou Depósito em conta</option>
+              <option value="VT">2. Vale Transporte</option>
+              <option value="VR/VA">3. Vale Refeição ou Alimentação</option>
+              <option value="Folha de Pagamento">4. Acréscimo em Holerite</option>
+              <option value="Bonificação">5. Bonificação Extra</option>
             </select>
           </div>
           <div class="col-md-9">
-            <label class="form-label">Categoria</label>
+            <label class="form-label">Categoria: </label>
             <select id="categoria" class="form-select" required>
               <option value="">Selecione uma categoria...</option>
-              <option value="Alimentação">🍽️ Alimentação</option>
-              <option value="Transporte">🚗 Transporte</option>
-              <option value="Saúde">🏥 Saúde</option>
-              <option value="Educação">📚 Educação</option>
-              <option value="Lazer">🎮 Lazer</option>
-              <option value="Roupas">👕 Roupas</option>
-              <option value="Casa">🏠 Casa</option>
-              <option value="Outros">📝 Outros</option>
+              <option value="Alimentação">1. Alimentação</option>
+              <option value="Transporte">2. Transporte</option>
+              <option value="Saúde">3. Saúde</option>
+              <option value="Bônus">4. Bônus</option>
+              <option value="Salário Base">5. Salário Base</option>
+              <option value="Décimo Terceiro">6. Décimo Terceiro Salário</option>
+              <option value="Férias">7. Férias</option>
+              <option value="Recisão Contratual">8. Recisão Contratual</option>
             </select>
           </div>
           <div class="col-md-3 d-grid">
@@ -81,14 +82,11 @@
           <div class="col-md-6">
             <select id="filtroCategoria" class="form-select">
               <option value="">📋 Todas as Categorias</option>
-              <option value="Alimentação">🍽️ Alimentação</option>
-              <option value="Transporte">🚗 Transporte</option>
-              <option value="Saúde">🏥 Saúde</option>
-              <option value="Educação">📚 Educação</option>
-              <option value="Lazer">🎮 Lazer</option>
-              <option value="Roupas">👕 Roupas</option>
-              <option value="Casa">🏠 Casa</option>
-              <option value="Outros">📝 Outros</option>
+              <option value="Alimentação">Alimentação</option>
+              <option value="Transporte">Transporte</option>
+              <option value="Saúde">Saúde</option>
+              <option value="Educação">Educação</option>
+   
             </select>
           </div>
           <div class="col-md-3">
